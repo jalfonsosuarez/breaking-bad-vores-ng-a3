@@ -14,8 +14,8 @@ export class CharactersService extends ApiService {
     super( apollo );
   }
 
-  list(): Observable<any> {
-    return this.query(GET_CHARACTERS)
+  list( skip: boolean = false ): Observable<any> {
+    return this.query(GET_CHARACTERS, { skip })
                 .pipe(map((result: any) => result.characters ));
   }
 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ICharacter } from '../../@interfaces/character.interface';
+import { CharactersService } from '../characters/characters.service';
 
 @Component({
   selector: 'app-votes',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VotesComponent implements OnInit {
 
-  constructor() { }
+  charactersList: Array<ICharacter> = [];
+
+  constructor( private characterService: CharactersService ) { }
 
   ngOnInit(): void {
+    this.characterService.list( false )
+        .subscribe( ( result: ICharacter[] ) => {
+          this.charactersList = result;
+        } );
   }
+
+  addVote( id: string ): void  {}
 
 }

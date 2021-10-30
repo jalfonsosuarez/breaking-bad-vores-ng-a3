@@ -1,1 +1,12 @@
-<p>votes works!</p>
+<div class="row">
+    <div class="col-lg-9">
+        <app-pie-chart [characterList]="charactersList"></app-pie-chart>
+    </div>
+    <div class="col-lg-3">
+        <button *ngFor="let character of charactersList" 
+                class="btn btn-info btn-block mb-2"
+                (click)="addVote( character.id )">
+            {{ character?.name}}
+        </button>
+    </div>
+</div>
