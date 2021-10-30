@@ -30,7 +30,13 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "rxjs/internal/operators/map",
+              "subscriptions-transport-ws",
+              "chart.js",
+              "lodash"
+            ]
           },
           "configurations": {
             "production": {
