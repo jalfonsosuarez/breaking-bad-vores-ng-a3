@@ -11,14 +11,17 @@ import { VotesService } from './votes.service';
 export class VotesComponent implements OnInit {
 
   charactersList: Array<ICharacter> = [];
+  loading = false;
 
   constructor( private characterService: CharactersService,
                private votesService: VotesService ) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.characterService.list( false )
         .subscribe( ( result: ICharacter[] ) => {
           this.charactersList = result;
+          this.loading = false;
         } );
     this.votesService.changeVotesListener()
         .subscribe();

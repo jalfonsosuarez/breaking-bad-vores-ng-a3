@@ -10,14 +10,17 @@ import { CharactersService } from './characters.service';
 export class CharactersComponent implements OnInit {
 
   charactersList: Array<ICharacter> = [];
+  loading = false;
 
   constructor( private characters: CharactersService ) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.characters.list()
         .subscribe( ( result: ICharacter[] ) => {
           this.charactersList = result;
-        } );
+          this.loading = false;
+        });
   }
 
 

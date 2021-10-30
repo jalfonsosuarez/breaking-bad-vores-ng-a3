@@ -1,14 +1,15 @@
-
-<h1 class="my-4">{{ character?.name }} - 
+<app-loading *ngIf="loading"></app-loading>
+<div *ngIf="!loading">
+  <h2 class="my-4">
+    {{ character?.name }} -
     <small>{{ character?.actor }}</small>
-  </h1>
-
+  </h2>
+  <hr/>
   <div class="row">
-
     <div class="col-md-5">
-      <img class="img-fluid" [src]="character?.photo" alt="">
+      <img class="img-fluid" [src]="character?.photo" alt="" />
     </div>
-
+  
     <div class="col-md-7">
       <h3 class="my-3">Descripción</h3>
       <p>{{ character?.description }}</p>
@@ -17,7 +18,9 @@
         <li>Episodios: {{ character?.total_episodes }}</li>
         <li>Votos: {{ character?.votes }}</li>
       </ul>
-      <a [href]="character.url" target="_blank" class="btn btn-info">Más detalles</a>
+      <a [href]="character.url" target="_blank" class="btn btn-info"
+        >Más detalles</a
+      >
     </div>
-
   </div>
+</div>

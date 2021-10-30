@@ -17,16 +17,20 @@ export class DetailsComponent implements OnInit {
     votes: 0
   };
 
+  loading = false;
+
   constructor( private activatedRoute: ActivatedRoute,
                private charaterService: CharactersService,
                private voteservice: VotesService ) { }
 
   ngOnInit(): void {
+    this.loading = true;
     this.activatedRoute.params.subscribe( ( params ) => {
       const id = params.id;
       this.charaterService.get( id )
             .subscribe( ( result ) => {
               this.character = result;
+              this.loading = false;
             });
       this.voteservice.changeVoteListener( id )
             .subscribe();
