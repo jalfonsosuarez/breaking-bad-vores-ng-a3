@@ -20,4 +20,13 @@ export class ApiService {
      }).valueChanges.pipe( map( ( result ) => result.data ) );
   }
 
+  // tslint:disable-next-line: typedef
+  protected mutation( mutation: DocumentNode, variables: object = {}, context: object = {} ) {
+    return this.apollo.mutate( {
+      mutation,
+      variables,
+      context,
+    }).pipe( map( ( result ) => result.data ) );
+  }
+
 }

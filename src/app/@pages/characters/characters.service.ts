@@ -20,7 +20,7 @@ export class CharactersService extends ApiService {
   }
 
   get( id: string ): Observable<any> {
-    return this.query(GET_CHARACTER, { id })
+    return this.query(GET_CHARACTER, { id, skip: false })
                 .pipe(map((result: any) => result.character ));
   }
 
