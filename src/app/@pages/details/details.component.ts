@@ -37,4 +37,9 @@ export class DetailsComponent implements OnInit {
     });
   }
 
+  addVote( id: string ) {
+    this.voteservice.add( id )
+          .subscribe( ( result: ICharacter ) => {});
+  }
+
 }

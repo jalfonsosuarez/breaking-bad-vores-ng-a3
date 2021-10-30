@@ -4,12 +4,12 @@
     {{ character?.name }} -
     <small>{{ character?.actor }}</small>
   </h2>
-  <hr/>
+  <hr />
   <div class="row">
     <div class="col-md-5">
       <img class="img-fluid" [src]="character?.photo" alt="" />
     </div>
-  
+
     <div class="col-md-7">
       <h3 class="my-3">Descripción</h3>
       <p>{{ character?.description }}</p>
@@ -18,9 +18,8 @@
         <li>Episodios: {{ character?.total_episodes }}</li>
         <li>Votos: {{ character?.votes }}</li>
       </ul>
-      <a [href]="character.url" target="_blank" class="btn btn-info"
-        >Más detalles</a
-      >
+      <a [href]="character.url" target="_blank" class="btn btn-info">Más detalles</a>&nbsp;
+      <a (click)="addVote(character.id)" target="_blank" class="btn btn-info">Votar</a>
     </div>
   </div>
 </div>
