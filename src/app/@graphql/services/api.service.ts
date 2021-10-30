@@ -29,4 +29,13 @@ export class ApiService {
     }).pipe( map( ( result ) => result.data ) );
   }
 
+  // tslint:disable-next-line: typedef
+  protected subscription( subscription: DocumentNode, variables: object = {}, context: object = {} ) {
+    return this.apollo.subscribe( {
+      query: subscription,
+      variables,
+      context,
+    }).pipe( map( ( result ) => result.data ) );
+  }
+
 }

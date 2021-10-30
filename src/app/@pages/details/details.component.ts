@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CharactersService } from '../characters/characters.service';
 import { ICharacter } from '../../@interfaces/character.interface';
+import { VotesService } from '../votes/votes.service';
 
 @Component({
   selector: 'app-details',
@@ -17,7 +18,8 @@ export class DetailsComponent implements OnInit {
   };
 
   constructor( private activatedRoute: ActivatedRoute,
-               private charaterService: CharactersService ) { }
+               private charaterService: CharactersService,
+               private voteservice: VotesService ) { }
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe( ( params ) => {
@@ -26,6 +28,8 @@ export class DetailsComponent implements OnInit {
             .subscribe( ( result ) => {
               this.character = result;
             });
+      this.voteservice.changeVoteListener( id )
+            .subscribe();
     });
   }
 

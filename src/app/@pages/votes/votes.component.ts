@@ -13,20 +13,20 @@ export class VotesComponent implements OnInit {
   charactersList: Array<ICharacter> = [];
 
   constructor( private characterService: CharactersService,
-              private votesService: VotesService ) { }
+               private votesService: VotesService ) { }
 
   ngOnInit(): void {
     this.characterService.list( false )
         .subscribe( ( result: ICharacter[] ) => {
           this.charactersList = result;
         } );
+    this.votesService.changeVotesListener()
+        .subscribe();
   }
 
   addVote( id: string ): void  {
     this.votesService.add( id )
-          .subscribe( ( result: ICharacter ) => {
-            console.log(result);
-          });
+          .subscribe( ( result: ICharacter ) => {});
   }
 
 }
