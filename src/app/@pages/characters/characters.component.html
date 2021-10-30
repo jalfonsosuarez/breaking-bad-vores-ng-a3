@@ -1,1 +1,6 @@
-<p>characters works!</p>
+
+<div class="row">
+    <div class="col-lg-4" *ngFor="let character of charactersList">
+        <app-card [character]="character"></app-card>
+    </div>
+</div>

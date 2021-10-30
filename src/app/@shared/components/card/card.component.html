@@ -1,0 +1,13 @@
+<div class="card">
+  <img [src]="character.photo" 
+    class="card-img-top" 
+    alt="..." 
+    onerror="this.src='/assets/images/default.webp'"/>
+  <div class="card-body">
+    <h5 class="card-title">{{ character.name }} (Episodios: {{ character.total_episodes }})</h5>
+    <p class="card-text truncate">
+      {{ character.description }}
+    </p>
+    <a [routerLink]="['/details', character.id]" class="btn btn-info">Más detalles</a>
+  </div>
+</div>
